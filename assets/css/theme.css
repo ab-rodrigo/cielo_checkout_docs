@@ -12193,7 +12193,7 @@
    }
    .docs-sidebar {
      display: none;
-     width: 300px;
+     width: 280px;
      position: fixed;
      z-index: 10;
      top: 69px;
@@ -12269,7 +12269,7 @@
    .docs-nav .nav-link {
      display: inline-block;
      position: relative;
-     padding: 0.5rem 1rem;
+     padding: 0.2rem 0.8rem;
      color: #5d6778;
    }
    .docs-nav .nav-link .theme-icon-holder {
@@ -12312,8 +12312,9 @@
      color: #252930;
    }
    .docs-article .docs-heading {
-     font-size: 3rem;
-     margin-bottom: 2rem;
+     /* font-size: 3rem; */
+     font-size: 2.2rem;
+     /* margin-bottom: 2rem; */
      position: relative;
    }
    .docs-article .docs-time {
@@ -12327,6 +12328,7 @@
    }
    .docs-article .docs-section {
      padding: 2rem 0;
+     padding: 1rem 0;
      border-bottom: 1px solid #e7e9ed;
      scroll-margin-top: 69px;
      scroll-snap-margin-top: 69px;
@@ -12335,7 +12337,8 @@
      margin-bottom: 0;
    }
    .docs-article .section-heading {
-     font-size: 1.875rem;
+     /* font-size: 1.875rem; */
+     font-size: 1.5rem;
      margin-bottom: 1rem;
      color: #252930;
    }
