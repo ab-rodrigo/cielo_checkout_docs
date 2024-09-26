@@ -100,6 +100,7 @@
 						<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-cards">Cartão de Crédito/Débito</a></li>
 						<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-pix">Pix</a></li>
 						<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-ticket">Boleto</a></li>
+						<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-googlepay">GooglePay</a></li>
 					</div>
 
 					<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-order-info-collapse"><a class="nav-link scrollto" href="#section-dashboard"><span class="theme-icon-holder me-2"><i class="fa-solid fa-chart-line"></i></span>Painel de controle</a></li>
@@ -148,6 +149,44 @@
 							Utilizando ferramentas de seguraça, anti fraude e autenticação como Velocity, ZeroAuth, Silent Order Post e Autenticação 3DS 2.2 os dados do cartão são validados antes de iniciar a
 							transação e trafegam de forma segura diretamente para os servidores Cielo.
 						</p>
+						<div class="d-flex justify-content-start align-items-center">
+							<div class="column">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-visa.png" alt="" title="Visa" />
+							</div>
+							<div class="column">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-master.png" alt="" title="Master" />
+							</div>
+							<div class="column">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-elo.png" alt="" title="Elo" />
+							</div>
+							<div class="column">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-amex.png" alt="" title="American Express" />
+							</div>
+							<div class="column">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-diners.png" alt="" title="Diners" />
+							</div>
+							<div class="column">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-discover.png" alt="" title="Discover" />
+							</div>
+							<div class="column">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-jcb.png" alt="" title="JCB" />
+							</div>
+							<div class="column">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-aura.png" alt="" title="Aura" />
+							</div>
+							<div class="column">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-hiper.png" alt="" title="Hiper" />
+							</div>
+							<div class="column">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-pix.png" alt="" title="Pix" />
+							</div>
+							<div class="column">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-ticket.png" alt="" title="Boleto" />
+							</div>
+							<div class="column">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-googlepay.png" alt="" title="GooglePay" />
+							</div>
+						</div>
 					</section>
 
 					<section class="docs-section" id="item-about-support">
@@ -548,6 +587,17 @@
 									<p class="mb-0">Para cartões de débito é obrigatório habilitar a <a href="#security-3ds">Autenticação 3DS 2.2.</a></p>
 								</div><!--//content-->
 							</div><!--//callout-block-->
+							<div class="callout-block callout-block-danger">
+								<div class="content">
+									<h4 class="callout-title">
+										<span class="callout-icon-holder me-1">
+											<i class="fas fa-bullhorn"></i>
+										</span><!--//icon-holder-->
+										Importante
+									</h4>
+									<p class="mb-0">Solicite ao <a href="#item-about-support">Suporte Cielo</a> que habilite a consulta de BIN.</p>
+								</div><!--//content-->
+							</div><!--//callout-block-->
 						</section>
 
 						<section class="docs-section" id="item-configuration-methods-pix">
@@ -705,7 +755,7 @@
 										</span><!--//icon-holder-->
 										Nota
 									</h4>
-									<p class="mb-0">Não oferecemos suporte a criação do Google Merchant ID. Para mais informações consulte <a target="_blank" href="https://support.google.com/merchants">Google Merchant Center Help</a></p>
+									<p class="mb-0">Não oferecemos suporte a criação do Google Merchant ID. Para mais informações consulte <a target="_blank" href="https://support.google.com/merchants">Google Merchant Center Help</a> e <a target="_blank" href="https://pay.google.com/business/console/">Google Pay & Wallet Console</a></p>
 								</div><!--//content-->
 							</div><!--//callout-block-->
 						</section>						
@@ -999,6 +1049,18 @@
 								<p class="mb-0">A seleção do <strong>Banco emissor</strong> do boleto será exibido apenas quando houver dois bancos configurados e habilitados.</p>
 							</div><!--//content-->
 						</div><!--//callout-block-->
+					</section>
+
+					<section class="docs-section" id="item-checkout-googlepay">
+						<h2 class="section-heading">GooglePay</h2>
+						<p>O comprador deve estar logado na sua conta do Google.</p>
+						<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-checkout-googlepay-flow-pt-br.png" alt="" title="GooglePay" />
+						<p>Fluxo de pagamento</p>
+						<ol>
+							<li class="py-0">O comprador seleciona o método de pagamento e parcelamento e clica no botão GPay.</li>
+							<li class="py-0">Será aberto um popup do GooglePay solicitando que o comprador selecione o cartão deseja utilizar.</li>
+							<li class="py-0">Após o confirmação, é exibido a mensagem de pagamento concluído e redirecionado para a página de sucesso.</li>
+						</ol>
 					</section>
 
 				</article><!--//docs-section-checkout-->
