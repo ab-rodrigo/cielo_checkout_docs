@@ -1,254 +1,1895 @@
-<!DOCTYPE html>
-<html lang="en"> 
-<head>
-    <title>CoderDocs - Bootstrap Documentation Template For Software Projects</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bootstrap Documentation Template For Software Developers">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="favicon.ico"> 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
-    <script defer src="assets/fontawesome/js/all.min.js"></script>
-    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
-</head> 
+<!doctype html>
+<html lang="en">
 
-<body>    
-	<header class="header fixed-top">
-		<div class="branding docs-branding">
-			<div class="container-fluid position-relative py-2">
-				<div class="docs-logo-wrapper">
-					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button">
-						<span></span>
-						<span></span>
-						<span></span>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Cielo Checkout for Opencart 4.x">
+	<meta name="author" content="Rodrigo Barbosa">
+	<title>Cielo Checkout for Opencart 4.x</title>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" sizes="16x16"  href="assets/images/favicon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<style>
+		:root {
+			--header-height: 56px;
+			--nav-link-font-size: 0.8rem;
+			--main-font-size: 0.85rem;
+		}
+
+		body {
+			font-family: "Poppins", sans-serif;
+			-webkit-font-smoothing: antialiased;
+			overflow: hidden;
+		}
+
+		main {
+			font-size: var(--main-font-size) !important;
+		}
+
+		#col-aside {
+			left: 0;
+			font-size: var(--nav-link-font-size);
+		}
+
+		#col-main {
+			right: 0;
+		}
+
+		main.container {
+			margin: 0;
+		}
+
+		#col-aside,
+		#col-main {
+			position: absolute;
+			overflow-y: scroll;
+			top: var(--header-height);
+			height: calc(100vh - var(--header-height));
+			bottom: 0;
+		}
+
+		.nav>ul>li.nav-item>a.nav-link {
+			padding-left: 20px;
+		}
+
+		.nav>ul>div>li>a.nav-link,
+		.nav>ul>div>div>li>a.nav-link {
+			padding-left: 40px;
+		}
+
+		section {
+			padding-top: 40px;
+		}
+
+		.theme-icon-holder {
+			display: inline-block;
+			background: #f4fcf6;
+			width: 32px;
+			height: 32px;
+			padding-top: 4px;
+			font-size: 1rem;
+			text-align: center;
+			border-radius: 50%;
+			border: 1px solid var(--bs-gray);
+		}
+
+		.callout-block {
+			padding: 1rem 1.5rem;
+			border-left: 3px solid #5d6778;
+			background: #f5f5f5;
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
+
+		.callout-block code {
+			background: #fff;
+		}
+
+		.callout-block .callout-title {
+			font-size: 1rem;
+		}
+
+		.callout-block.callout-block-info {
+			border-color: #5b99ea;
+			background: #f9fbfe;
+		}
+
+		.callout-block.callout-block-info .callout-title {
+			color: #1c6fdc;
+		}
+
+		.callout-block.callout-block-info a {
+			/* color: #1c6fdc; */
+		}
+
+		.callout-block.callout-block-success {
+			border-color: #5cb377;
+			background: #e7f4eb;
+		}
+
+		.callout-block.callout-block-success .callout-title {
+			color: #3e8554;
+		}
+
+		.callout-block.callout-block-success a {
+			/* color: #3e8554; */
+		}
+
+		.callout-block.callout-block-warning {
+			border-color: #eebf41;
+			background: #fdf6e5;
+		}
+
+		.callout-block.callout-block-warning .callout-title {
+			color: #d09c13;
+		}
+
+		.callout-block.callout-block-warning a {
+			/* color: #d09c13; */
+		}
+
+		.callout-block.callout-block-danger {
+			border-color: #d26d69;
+			background: #fbf3f2;
+		}
+
+		.callout-block.callout-block-danger .callout-title {
+			color: #b73c37;
+		}
+
+		.callout-block.callout-block-danger a {
+			/* color: #b73c37; */
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top " aria-label="Cielo Checkout for Opencart 4.x">
+				<div class="container-fluid d-flex justify-content-start">
+					<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
 					</button>
-					<div class="site-logo"><a class="navbar-brand" href="index.html"><span class="logo-text">Cielo Checkout <span class="text-alt">Documentação</span></span></a>
+					<a class="navbar-brand ms-3" href="#">Cielo Checkout for Opencart 4.x</a>
+				</div>
+			</nav>
+
+			<aside class="col-lg-3 col-xl-2 sidebar" id="col-aside">
+				<div class="offcanvas-lg offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" data-bs-backdrop="static">
+					<div class="offcanvas-header">
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar" aria-label="Fechar"></button>
+					</div>
+					<div class="offcanvas-body">
+						<nav id="nav" class="nav navbar">
+							<ul class="section-items list-unstyled nav flex-column pb-3">
+								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#about-collapse"><a class="nav-link scrollto" href="#section-about"><span class="theme-icon-holder me-2"><i class="fa-solid fa-power-off"></i></span>Sobre a extensão</a></li>
+								<div id="about-collapse" class="collapse">
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-about-overview">Visão geral</a></li>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-about-support">Suporte técnico</a></li>
+								</div>
+
+								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#installation-collapse"><a class="nav-link scrollto" href="#section-installation"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-down"></i></span>Instalação</a></li>
+								<div id="installation-collapse" class="collapse">
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-installation-extension">Upload da extensão</a></li>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-installation-certificates-server">Certificado TLS/SSL servidor</a></li>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-installation-certificates-cielo">Certificado TLS/SSL Cielo</a></li>
+								</div>
+
+								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#configuration-collapse"><a class="nav-link scrollto" href="#section-configuration"><span class="theme-icon-holder me-2"><i class="fa-solid fa-gear"></i></span>Configuração</a></li>
+								<div id="configuration-collapse" class="collapse">
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-accessing">Acessando</a></li>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-general">Configurações Gerais</a></li>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-credentials">Credenciais</a></li>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-status">Status Transacional</a></li>
+
+									<li class="nav-item collapsed" data-bs-toggle="collapse" data-bs-target="#configuration-methods-collapse"><a class="nav-link scrollto" href="#item-configuration-methods">Meios de
+											Pagamento</a></li>
+									<div id="configuration-methods-collapse" class="ms-4 collapse">
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-methods-credit-card">Cartão de Crédito</a>
+										</li>
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-methods-debit-card">Cartão de Débito</a>
+										</li>
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-methods-pix">Pix</a></li>
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-methods-ticket">Boleto</a></li>
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-methods-googlepay">GooglePay</a></li>
+									</div>
+
+									<li class="nav-item collapsed" data-bs-toggle="collapse" data-bs-target="#configuration-security-collapse"><a class="nav-link scrollto" href="#item-configuration-security">Segurança/Anti fraude</a></li>
+									<div id="configuration-security-collapse" class="ms-4 collapse">
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-security-velocity">Velocity</a></li>
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-security-zeroauth">ZeroAuth</a></li>
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-security-sop">Silent Order Post</a></li>
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-security-mpi">Autenticação 3DS 2.2</a>
+										</li>
+									</div>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-security-notification-post">Notificação</a>
+									</li>
+								</div>
+
+								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#checkout-collapse"><a class="nav-link scrollto" href="#section-checkout"><span class="theme-icon-holder me-2"><i class="fa-solid fa-cart-shopping"></i></span>Checkout</a></li>
+								<div id="checkout-collapse" class="collapse">
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-loading-methods">Carregando Meios de Pagamento</a>
+									</li>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-cards">Cartão
+											de Crédito/Débito</a></li>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-pix">Pix</a>
+									</li>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-ticket">Boleto</a></li>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-googlepay">GooglePay</a></li>
+								</div>
+
+								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-order-info-collapse"><a class="nav-link scrollto" href="#section-dashboard"><span class="theme-icon-holder me-2"><i class="fa-solid fa-chart-line"></i></span>Painel de controle</a>
+								</li>
+								<div id="dashboard-order-info-collapse" class="collapse">
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-dashboard-transaction-details">Detalhes da transação</a>
+									</li>
+								</div>
+
+								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#catalog-order-info-collapse"><a class="nav-link scrollto" href="#section-catalog"><span class="theme-icon-holder me-2"><i class="fa-solid fa-user"></i></span>Área do cliente</a></li>
+								<div id="catalog-order-info-collapse" class="collapse">
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-catalog-change-payment-method">Alterando método de pagemento</a>
+									</li>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-catalog-print-ticket">Reimpressão de boleto</a></li>
+									<li class="nav-item"><a class="nav-link scrollto" href="#item-catalog-transaction-details">Detalhes da transação</a></li>
+								</div>
+
+								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#attachment-collapse"><a class="nav-link scrollto" href="#section-attachment"><span class="theme-icon-holder me-2"><i class="fa-solid fa-paperclip"></i></span>Anexo</a></li>
+								<div id="attachment-collapse" class="collapse">
+									<li class="nav-item" data-bs-toggle="collapse" data-bs-target="#attachment-ticket-bradesco-collapse"><a class="nav-link scrollto" href="#item-attachment-ticket-bradesco">Configurando boleto Bradesco</a>
+									</li>
+									<div id="attachment-ticket-bradesco-collapse" class="ms-4 collapse">
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-attachment-ticket-bradesco-environment">Ambiente
+												Bradesco</a></li>
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-attachment-ticket-bradesco-cielo-environment">Ambiente
+												Cielo</a></li>
+									</div>
+									<li class="nav-item" data-bs-toggle="collapse" data-bs-target="#attachment-ticket-bb-collapse"><a class="nav-link scrollto" href="#item-attachment-ticket-bb">Configurando boleto BB</a></li>
+									<div id="attachment-ticket-bb-collapse" class="ms-4 collapse">
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-attachment-ticket-bb-environment">Ambiente BB</a></li>
+										<li class="nav-item"><a class="nav-link scrollto" href="#item-attachment-ticket-bb-cielo-environment">Ambiente
+												Cielo</a></li>
+									</div>
+								</div>
+							</ul>
+						</nav>
 					</div>
 				</div>
-				<div class="docs-top-utilities d-flex justify-content-end align-items-center">
-					<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
-						<li class="list-inline-item"><a href="#"><i class="fab fa-github fa-fw"></i></a></li>
-					</ul>
-					<a href="https://www.opencart.com/index.php?route=marketplace/extension&filter_member=Rodrigoabr" class="btn btn-primary d-none d-lg-flex">Download</a>
-				</div>
+			</aside>
+			<div class="col-lg-9 col-xl-10" id="col-main">
+				<main role="main" class="container-lg mt-2">
+					<article class="article px-0 py-4 border-top" id="section-about">
+						<header class="header">
+							<h1 class="heading">Sobre a extensão</h1>
+						</header>
+						<section class="section" id="item-about-overview">
+							<h2 class="section-heading">Visão geral</h2>
+							<p>A extensão Cielo Checkout permite integrar facilmente as soluções Cielo E-Commerce para pagamentos via cartão de crédito/débito, boleto, PIX e GooglePay.
+								Oferecendo uma experiência de checkout simplificada, segura e transparente.
+								Utilizando ferramentas de anti fraude e autenticação como Velocity, ZeroAuth, Silent Order Post (PCI DSS 3.2) e Autenticação 3DS 2.2
+								para garantir segurança para clientes e comerciantes.
+							</p>
+							<div class="d-flex justify-content-start align-items-center">
+								<div class="column">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-visa.png" alt="" title="Visa" />
+								</div>
+								<div class="column">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-master.png" alt="" title="Master" />
+								</div>
+								<div class="column">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-elo.png" alt="" title="Elo" />
+								</div>
+								<div class="column">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-amex.png" alt="" title="American Express" />
+								</div>
+								<div class="column">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-diners.png" alt="" title="Diners" />
+								</div>
+								<div class="column">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-discover.png" alt="" title="Discover" />
+								</div>
+								<div class="column">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-jcb.png" alt="" title="JCB" />
+								</div>
+								<div class="column">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-aura.png" alt="" title="Aura" />
+								</div>
+								<div class="column">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-hiper.png" alt="" title="Hiper" />
+								</div>
+								<div class="column">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-pix.png" alt="" title="Pix" />
+								</div>
+								<div class="column">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-ticket.png" alt="" title="Boleto" />
+								</div>
+								<div class="column">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-googlepay.png" alt="" title="GooglePay" />
+								</div>
+							</div>
+						</section>
+
+						<section class="section" id="item-about-support">
+							<h2 class="section-heading">Suporte técnico</h2>
+							<h5 class="my-3">Suporte da extensão</h5>
+							<p>Acesse a página da extensão no <a target="_blank" href="https://www.opencart.com/index.php?route=marketplace/extension&filter_member=Rodrigoabr">marketplace oficial</a> e clique em <strong>Get
+									Support</strong>.</p>
+
+							<h5 class="my-3">Suporte Cielo</h5>
+							<p>Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com
+								o Suporte Web do Cielo e-Commerce nos seguintes canais:</p>
+							<ul>
+								<li class="pb-0"><strong>E-mail:</strong> <a target="_self" href="mailto:cieloeCommerce@cielo.com.br">cieloeCommerce@cielo.com.br</a></li>
+								<li class="pb-0"><strong>Capitais:</strong> 4002-9700</li>
+								<li class="pb-0"><strong>Demais Cidades:</strong> 0800 570 1700</li>
+								<li class="pb-0"><strong>*Horário de atendimento:</strong> 24h por dia, 7 dias por
+									semana.</li>
+							</ul>
+						</section>
+					</article>
+
+					<article class="article px-0 py-4 border-top" id="section-installation">
+						<header class="header">
+							<h1 class="heading">Instalação</h1>
+						</header>
+
+						<section class="section" id="item-installation-extension">
+							<h2 class="section-heading">Upload da extensão</h2>
+							<ol>
+								<li class="pb-0">Faça download da extensão na <a target="_blank" href="https://www.opencart.com/index.php?route=marketplace/extension&filter_member=Rodrigoabr">página
+										oficial</a> e salve o arquivo em um local conhecido em seu dispositivo.</li>
+								<li class="pb-0">
+									A partir do <strong>Painel de Controle</strong>, acesse <strong>Extensões &gt;
+										Instalador</strong> e clique em <strong>Upload</strong> <span class="border rounded ms-1" style="border-color: #1872a2;color: #fff;background-color: #1e91cf;padding: 9px 12px; display: inline-block;"><i class="fa-solid fa-upload"></i></span>
+								</li>
+								<li class="pb-0">
+									<p>Localize o arquivo em seu dispositivo, selecione-o e clique em
+										<strong>Abrir</strong> ou dê um duplo clique no nome do arquivo.
+									</p>
+									<p>Aguarde a instalação ser concluída. A extensão será listada na tabela de
+										<strong>Extensões instaladas</strong>.
+									</p>
+									<div class="col-md-6 col-sm-12">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-installation-extension-list-pt-br.png" alt="" title="Extensões instaladas" />
+									</div>
+								</li>
+								<li class="pb-0">Clique em <strong>Instalar</strong> <span class="border rounded ms-1" style="border-color: #3c933c;color: #fff;background-color: #4cb64c;padding: 9px 12px; display: inline-block;"><i class="fa-solid fa-plus-circle"></i></span></li>
+								<li class="pb-0">
+									<p>Vá em <strong>Extensões &gt; Extensões</strong>, selecione
+										<strong>Pagamentos</strong> em Tipo de extensão, encontre <strong>Cielo
+											Checkout</strong> na tabela e clique em
+										<strong>Instalar</strong>.</strong><span class="border rounded ms-1" style="border-color: #3c933c;color: #fff;background-color: #4cb64c;padding: 9px 12px; display: inline-block;"><i class="fa-solid fa-plus-circle"></i></span></span>
+									<div class="col-md-6 col-sm-12">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-installation-payment-extensions-list-pt-br.png" alt="" title="Extensões de pagamento" />
+									</div>
+								</li>
+								<li class="pb-0">Siga as <a href="#item-configuration-accessing">Orientações de
+										configuração</a>.</li>
+							</ol>
+						</section>
+
+						<section class="section" id="item-installation-certificates-server">
+							<h2 class="section-heading">Certificado TLS/SSL no domínio do site</h2>
+							<p>É obrigatório que o domínio do site implemente certificado TLS/SSL e utilize o protocolo
+								HTTPS para estabelecer uma comunicação segura com o servidor.</p>
+
+							<div class="callout-block callout-block-warning">
+								<div class="content">
+									<h4 class="callout-title">
+										<span class="callout-icon-holder me-1">
+											<i class="fas fa-bullhorn"></i>
+										</span>
+										Atenção
+									</h4>
+									<p class="mb-0">Não oferecemos suporte a instalação do certificado no servidor.</p>
+								</div>
+							</div>
+
+							<div class="callout-block callout-block-warning">
+								<div class="content">
+									<h4 class="callout-title">
+										<span class="callout-icon-holder me-1">
+											<i class="fas fa-bullhorn"></i>
+										</span>
+										Atenção
+									</h4>
+									<p class="mb-0">Entre em contato com o suporte o seu servidor para mais
+										informaçõoes.</p>
+								</div>
+							</div>
+						</section>
+
+						<section class="section" id="item-installation-certificates-cielo">
+							<h2 class="section-heading">Certificado TLS/SSL Cielo</h2>
+							<h4 class="my-3">Instalação no Servidor da loja virtual</h4>
+							<p>Além utilizar o protocolo HTTPS instalando certificado TLS/SSL no endereço da sua loja
+								virtual, é necessário instalar os três arquivos a seguir na Trustedstore do servidor.
+							</p>
+							<ul>
+								<li class="pb-0"><a target="_self" href="https://developercielo.github.io/attachment/root-2024.zip">Certificado
+										Raiz</a> </li>
+								<li class="pb-0"><a target="_self" href="https://developercielo.github.io/attachment/intermediate-2024.zip">Certificado
+										Intermediária</a> </li>
+								<li class="pb-0"><a target="_self" href="https://developercielo.github.io/attachment/cielo-ecommerce-2024.zip">Certificado
+										E-Commerce Cielo</a> </li>
+							</ul>
+							<div class="callout-block callout-block-info">
+								<div class="content">
+									<h4 class="callout-title">
+										<span class="callout-icon-holder me-1">
+											<i class="fas fa-bullhorn"></i>
+										</span>
+										Nota
+									</h4>
+									<p class="mb-0">Caso não esteja seguro sobre como realizar a instalação do
+										certificado, entre em contado com o suporte do seu servidor.</p>
+								</div>
+							</div>
+
+							<div class="callout-block callout-block-warning">
+								<div class="content">
+									<h4 class="callout-title">
+										<span class="callout-icon-holder me-1">
+											<i class="fas fa-bullhorn"></i>
+										</span>
+										Atenção
+									</h4>
+									<p class="mb-0">Não oferecemos suporte a instalação do certificado Cielo.</p>
+								</div>
+							</div>
+
+							<div class="callout-block callout-block-warning">
+								<div class="content">
+									<h4 class="callout-title">
+										<span class="callout-icon-holder me-1">
+											<i class="fas fa-bullhorn"></i>
+										</span>
+										Atenção
+									</h4>
+									<p class="mb-0">A Cielo não oferece suporte para a instalação do certificado.</p>
+								</div>
+							</div>
+
+							<h4 class="my-3">Acesso do Cliente à loja virtual</h4>
+							<p>O navegador faz a atualização do certificado automaticamente. Os certificados da Cielo
+								serão exibidos no botão de informações do site no endereço da sua loja virtual. No
+								cadeado, será possível ver as informações do certificado, como a instituição emissora e
+								a data de validade.</p>
+							<figure>
+								<img class="figure-img img-fluid shadow rounded w-25" src="assets/images/pt/docs-installation-certificates-pt-br.png" alt="" title="Certificado TLS/SSL" />
+								<figcaption><em class="fs-7">Fonte: Cielo</em></figcaption>
+							</figure>
+						</section>
+
+					</article>
+
+					<article class="article px-0 py-4 border-top" id="section-configuration">
+						<header class="header">
+							<h1 class="heading">Configuração</h1>
+						</header>
+						<section class="section">
+
+							<section class="section" id="item-configuration-accessing">
+								<h2 class="section-heading">Acessando as configurações</h2>
+								<p>Para acessar as configurações clique em <strong>Extensões &gt; Extensões</strong> a
+									partir do <strong>Painel de Controle</strong>, selecione <strong>Pagamentos</strong>
+									em Tipo de extensão, encontre <strong>Cielo Checkout</strong> na tabela e clique em
+									<strong>Editar</strong>.</strong><span class="border rounded ms-1" style="border-color: #1872a2;color: #fff;background-color: #1e91cf;padding: 9px 12px; display: inline-block;"><i class="fa-solid fa-pencil"></i></span>
+								</p>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-accessing-pt-br.png" alt="" title="Acessando as configurações" />
+								</div>
+							</section>
+
+							<section class="section" id="item-configuration-general">
+								<h2 class="section-heading">Configurações Gerais</h2>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-general-pt-br.png" alt="" title="Configurações Gerais" />
+								</div>
+								<table class="table table-responsive table-bordered table-striped">
+									<tbody>
+										<thead>
+											<tr>
+												<th scope="col">Parâmetro</th>
+												<th scope="col" colspan="2">Descrição</th>
+											</tr>
+										</thead>
+										<tr>
+											<th>Nome do método</th>
+											<td>Texto que será exibido na seleção de métodos de pagamento na finalização
+												do pedido.</td>
+											<td rowspan="3" style="width: 30%;">
+												<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-select-method-pt-br.png" alt="" title="Método de pagamento" />
+											</td>
+										</tr>
+										<tr>
+											<th>Nome da opção</th>
+											<td>Texto que será exibido na opção de meios de pagamento na finalização do
+												pedido.</td>
+										</tr>
+										<tr>
+											<th>Ordem</th>
+											<td>Ordem em que o método de pagamento será exibido.
+											</td>
+										</tr>
+										<tr>
+											<th>Zona geográfica</th>
+											<td colspan="2">Região onde o método de pagamento estará dispponível.</td>
+										</tr>
+										<tr>
+											<th>Ambiente</th>
+											<td colspan="2">Modo operação comum a todos os meios de pagamento.
+												<p><strong>Sandbox</strong>: Utilizadas para operação em ambiente de
+													testes.</br>
+													<strong>Produção</strong>: Utilizadas para operação em ambiente
+													real.
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<th>Ocultar seleção de método de pagamento</th>
+											<td>Quando habilitando a opção <strong>Forma de pagamento</strong> ficará
+												oculta na finalização do pedido. O método de pagamento <strong>Cielo
+													Checkout</strong> será selecionado automaticamente.</td>
+											<td style="width: 1%;">
+												<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-checkout-select-method-pt-br.png" alt="" title="Forma de pagamento" />
+											</td>
+										</tr>
+										<tr>
+											<th>Status</th>
+											<td colspan="2">Habilita a extensão.</td>
+										</tr>
+										<tr>
+											<th>Log de erros</th>
+											<td colspan="2">
+												Grava um histórico de dados de erros ou falhas. Consulte o histórico
+												acessando <strong>Configurações &gt; Manutenção &gt; Log de
+													erros</strong> e clique na aba <strong>cielo.log</strong>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+
+							<section class="section" id="item-configuration-credentials">
+								<h2 class="section-heading">Credenciais</h2>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-credentials-pt-br.png" alt="" title="Credenciais" />
+								</div>
+								<h4 class="my-3">Credenciais de Sandbox</h4>
+								<p>Utilizadas para operaçãoem ambiente de testes. Para obter as credenciais <code class="language-plaintext highlighter-rouge">MerchantId</code> e <code class="language-plaintext highlighter-rouge">MerchantKey</code> de testes crie
+									uma conta em <a href="https://cadastrosandbox.cieloecommerce.cielo.com.br/" target="\_blank">Cadastro do Sandbox</a>.
+								</p>
+
+								<h4 class="my-3">Credenciais de Produção</h4>
+								<p>Utilizadas para operação em ambiente real. As credenciais <code class="language-plaintext highlighter-rouge">MerchantId</code> e <code class="language-plaintext highlighter-rouge">MerchantKey</code> são fornecidas
+									pela Cielo após a afiliação do estabelecimento.
+								</p>
+							</section>
+
+							<section class="section" id="item-configuration-status">
+								<h2 class="section-heading">Status Transacional</h2>
+								<p>Correlacione os status do pedido e do resultado da transação de pagamento.</p>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-status-pt-br.png" alt="" title="Status Transacional" />
+								</div>
+								<table class="table table-responsive table-bordered table-striped">
+									<tbody>
+										<thead>
+											<tr>
+												<th scope="col">Status do pagamento</th>
+												<th scope="col" colspan="2">Descrição</th>
+											</tr>
+										</thead>
+										<tr>
+											<td>Não concluído</td>
+											<td>Aguardando atualização de status.</td>
+										</tr>
+										<tr>
+											<td>Autorizado</td>
+											<td>Pagamento apto a ser capturado mas ainda não concluído.</td>
+										</tr>
+										<tr>
+											<td>Pagamento confirmado</td>
+											<td>Pagamento confirmado e finalizado.</td>
+										</tr>
+										<tr>
+											<td>Negado</td>
+											<td>Pagamento negado.</td>
+										</tr>
+										<tr>
+											<td>Anulado</td>
+											<td>Pagamento cancelado.</td>
+										</tr>
+										<tr>
+											<td>Reembolsado</td>
+											<td>Pagamento cancelado após 23h59 do dia de autorização.</td>
+										</tr>
+										<tr>
+											<td>Pendente</td>
+											<td>Aguardando retorno da instituição financeira.</td>
+										</tr>
+										<tr>
+											<td>Abortado</td>
+											<td>Pagamento cancelado por falha no processamento.</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</section>
+
+							<section class="section" id="item-configuration-methods">
+								<h2 class="section-heading">Meios de Pagamento</h2>
+								<h5>Meios de pagamento disponíveis:</h5>
+								<ul>
+									<li class="pb-0"><a class="nav-link scrollto" href="#item-checkout-cards">Cartão de
+											Crédito/Débito</a></li>
+									<li class="pb-0"><a class="nav-link scrollto" href="#item-checkout-pix">Pix</a></li>
+									<li class="pb-0"><a class="nav-link scrollto" href="#item-checkout-ticket">Boleto</a></li>
+									<li class="pb-0"><a class="nav-link scrollto" href="#item-checkout-googlepay">GooglePay</a></li>
+								</ul>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-methods-pt-br.png" alt="" title="Meios de pagamento disponíveis" />
+								</div>
+							</section>
+
+							<section class="section" id="item-configuration-methods-credit-card">
+								<h4 class="section-heading fs-4">Cartão de Crédito</h4>
+								<h6 class="fs-6">Bandeiras disponíveis</h6>
+								<div class="d-flex justify-content-start align-items-center mb-4">
+									<div class="column">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-visa.png" alt="" title="Visa" style="max-height: 50px;" />
+									</div>
+									<div class="column">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-master.png" alt="" title="Master" style="max-height: 50px;" />
+									</div>
+									<div class="column">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-elo.png" alt="" title="Elo" style="max-height: 50px;" />
+									</div>
+									<div class="column">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-amex.png" alt="" title="American Express" style="max-height: 50px;" />
+									</div>
+									<div class="column">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-diners.png" alt="" title="Diners" style="max-height: 50px;" />
+									</div>
+									<div class="column">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-discover.png" alt="" title="Discover" style="max-height: 50px;" />
+									</div>
+									<div class="column">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-jcb.png" alt="" title="JCB" style="max-height: 50px;" />
+									</div>
+									<div class="column">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-aura.png" alt="" title="Aura" style="max-height: 50px;" />
+									</div>
+									<div class="column">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-hiper.png" alt="" title="Hiper" style="max-height: 50px;" />
+									</div>
+								</div>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-methods-credit-card-pt-br.png" alt="" title="Cartão de Crédito" />
+								</div>
+								<table class="table table-responsive table-bordered table-striped">
+									<tbody>
+										<thead>
+											<tr>
+												<th scope="col">Parâmetro</th>
+												<th scope="col" colspan="2">Descrição</th>
+											</tr>
+										</thead>
+										<tr>
+											<td>Texto no extrato</td>
+											<td>Texto impresso na fatura bancaria do portador. Não permite caracteres
+												especiais.
+											</td>
+										</tr>
+										<tr>
+											<td>Status</td>
+											<td>Habilita o meio de pagamento.</td>
+										</tr>
+										<tr>
+											<td>Tarifa de crédito à vista</td>
+											<td>Percentual adicional para pagamentos na modalidade crédito à vista.
+												Consulte o
+												seu contrato com a Cielo para mais informações.</td>
+										</tr>
+										<tr>
+											<td>Tarifa de parcelamento</td>
+											<td>Percentual adicional para pagamentos na modadlidade de crédito
+												parcelado.
+												Consulte o seu contrato com a Cielo para mais informações.</td>
+										</tr>
+										<tr>
+											<td>Tarifa por parcela</td>
+											<td>Percentual adicional em cada parcela. Aplicável apenas para 2 ou mais
+												parcelas.
+												Consulte o seu contrato com a Cielo para mais informações.</td>
+										</tr>
+										<tr>
+											<td>Valor mínimo</td>
+											<td>Valor mínimo que o pedido deve atingir para que o meio de pagamento seja
+												habilitado.</td>
+										</tr>
+										<tr>
+											<td>Parcelamentos</td>
+											<td>
+												<dl class="row">
+													<dt class="col-3">Parcelamentos</dt>
+													<dd class="col-9">Quantidade de parcelas. Máximo 12.</dd>
+													<hr class="my-1">
+													<dt class="col-3">Pagador das tarifas</dt>
+													<dd class="col-9">
+														<p>Valores possíveis:</p>
+														<ul>
+															<li class="py-0">Vendedor paga todas as tarifas.</li>
+															<li class="py-0">Cliente paga todas as tarifas.</li>
+															<li class="py-0">Cliente paga apenas parcelamento (Não
+																aplicável a uma parcela)</li>
+														</ul>
+													</dd>
+													<hr class="my-1">
+													<dt class="col-3">Valor mínimo</dt>
+													<dd class="col-9">Valor mínimo que o pedido deve atingir para que a
+														quantidade de parcela correspondente seja habilitado.</dd>
+												</dl>
+
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="callout-block callout-block-danger">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-bullhorn"></i>
+											</span>
+											Importante
+										</h4>
+										<p class="mb-0">Solicite ao <a href="#item-about-support">Suporte Cielo</a> que
+											habilite a consulta de BIN.</p>
+									</div>
+								</div>
+							</section>
+
+							<section class="section" id="item-configuration-methods-debit-card">
+								<h4 class="section-heading fs-4">Cartão de Débito</h4>
+								<h6 class="fs-6">Bandeiras disponíveis</h6>
+								<div class="d-flex justify-content-start align-items-center mb-4">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-visa.png" alt="" title="Visa" style="max-height: 50px;" />
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-master.png" alt="" title="Master" style="max-height: 50px;" />
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-elo.png" alt="" title="Elo" style="max-height: 50px;" />
+								</div>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-methods-debit-card-pt-br.png" alt="" title="Cartão de Débito" />
+								</div>
+								<table class="table table-responsive table-bordered table-striped">
+									<tbody>
+										<thead>
+											<tr>
+												<th scope="col">Parâmetro</th>
+												<th scope="col" colspan="2">Descrição</th>
+											</tr>
+										</thead>
+										<tr>
+											<td>Texto no extrato</td>
+											<td>Texto impresso na fatura bancaria do portador. Não permite caracteres
+												especiais.
+											</td>
+										</tr>
+										<tr>
+											<td>Tarifa</td>
+											<td>Percentual adicional para pagamentos na modalidade débito. Consulte o
+												seu
+												contrato com a Cielo para mais informações.</td>
+										</tr>
+										<tr>
+											<td>Pagador das tarifas</td>
+											<td>
+												<p>Valores possíveis:</p>
+												<ul>
+													<li class="py-0">Vendedor paga todas as tarifas.</li>
+													<li class="py-0">Cliente paga todas as tarifas.</li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<td>Valor mínimo</td>
+											<td>Valor mínimo que o pedido deve atingir para que o meio de pagamento seja
+												habilitado.</td>
+										</tr>
+										<tr>
+											<td>Status</td>
+											<td>Habilita o meio de pagamento.</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="callout-block callout-block-warning">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-bullhorn"></i>
+											</span>
+											Importante
+										</h4>
+										<p class="mb-0">Para cartões de débito é obrigatório habilitar a <a href="#security-3ds">Autenticação 3DS 2.2.</a></p>
+									</div>
+								</div>
+								<div class="callout-block callout-block-danger">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-bullhorn"></i>
+											</span>
+											Importante
+										</h4>
+										<p class="mb-0">Solicite ao <a href="#item-about-support">Suporte Cielo</a> que
+											habilite a consulta de BIN.</p>
+									</div>
+								</div>
+							</section>
+
+							<section class="section" id="item-configuration-methods-pix">
+								<h4 class="section-heading fs-4">Pix</h4>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-methods-pix-pt-br.png" alt="" title="Pix" />
+								</div>
+								<table class="table table-responsive table-bordered table-striped">
+									<tbody>
+										<thead>
+											<tr>
+												<th scope="col">Parâmetro</th>
+												<th scope="col" colspan="2">Descrição</th>
+											</tr>
+										</thead>
+										<tr>
+											<td>Desconto</td>
+											<td>Desconto que será aplicado ao valor final do pedido.</td>
+										</tr>
+										<tr>
+											<td>Valor mínimo</td>
+											<td>Valor mínimo que o pedido deve atingir para que o meio de pagamento seja
+												habilitado.</td>
+										</tr>
+										<tr>
+											<td>Tamanho do QRCode (px)</td>
+											<td>Tamanho em pixels que o QRCode será exibido.</td>
+										</tr>
+										<tr>
+											<td>Status</td>
+											<td>Habilita o meio de pagamento.</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="callout-block callout-block-info">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-info-circle"></i>
+											</span>
+											Nota
+										</h4>
+										<p>Para habilitar o Pix no ambiente sandbox entre em contato com <a href="#item-about-support">Suporte Cielo</a>.</p>
+									</div>
+								</div>
+								<p>Antes de usar em <strong>produção</strong>, certifique-se de que o Pix está liberado
+									em seu cadastro. Para confirmar basta acessar o <a target="_blank" href="https://www.cielo.com.br/">Portal Cielo</a> na área logada em <strong>Meu
+										Cadastro &gt; Autorizações &gt; PIX</strong></p>
+								<figure>
+									<div class="col-md-6 col-sm-12">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/adesao-pix.png" alt="" title="Adesã Pix" />
+									</div>
+									<figcaption><em class="fs-7">Fonte: Cielo</em></figcaption>
+								</figure>
+							</section>
+
+							<section class="section border-bottom-0 pb-0" id="item-configuration-methods-ticket">
+								<h4 class="section-heading fs-4">Boleto</h4>
+								<h6 class="fs-6">Bancos disponíveis</h6>
+								<div class="d-flex justify-content-start align-items-center mb-4">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-bradesco.png" alt="" title="Visa" style="max-height: 50px;" />
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/docs-brands-bb.png" alt="" title="Master" style="max-height: 50px;" />
+								</div>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-methods-ticket-pt-br.png" alt="" title="Boleto" />
+								</div>
+								<table class="table table-responsive table-bordered table-striped">
+									<tbody>
+										<thead>
+											<tr>
+												<th scope="col">Parâmetro</th>
+												<th scope="col" colspan="2">Descrição</th>
+											</tr>
+										</thead>
+										<tr>
+											<td>Identificação do cedente</td>
+											<td>Identificação (CPF ou CNPJ) do lojista junto ao banco emissor (Bradesco
+												ou Banco
+												do Brasil).</td>
+										</tr>
+										<tr>
+											<td>Dias de vencimento</td>
+											<td>Dias de vencimento a partir do dia corrente para novos boletos. Máximo
+												de 30
+												dias. </td>
+										</tr>
+										<tr>
+											<td>Desconto</td>
+											<td>Desconto que será aplicado ao valor final do pedido.</td>
+										</tr>
+										<tr>
+											<td>Demobstrativo</td>
+											<td>Texto que constará no campo <em>Demonstrativo</em> do boleto.</td>
+										</tr>
+										<tr>
+											<td>instruções</td>
+											<td>Texto que constará no campo <em>Instruções</em> do boleto.</td>
+										</tr>
+										<tr>
+											<td>Valor mínimo</td>
+											<td>Valor mínimo que o pedido deve atingir para que o meio de pagamento seja
+												habilitado.</td>
+										</tr>
+										<tr>
+											<td>Status</td>
+											<td>Habilita o meio de pagamento.</td>
+										</tr>
+										<tr>
+											<td>Atualizar boletos</td>
+											<td>
+												<dl class="row">
+													<dt class="col-3">Dias de vencimento</dt>
+													<dd class="col-9">Dias de vencimento a partir da data atual. Máximo
+														de 30 dias.</dd>
+													<hr class="my-1">
+													<dt class="col-3">Status</dt>
+													<dd class="col-9">Habilita <a href="#item-catalog-print-ticket">reimpressão de boleto</a>
+														na página de detalhes do pedido.</dd>
+												</dl>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="callout-block callout-block-info">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-info-circle"></i>
+											</span>
+											Nota
+										</h4>
+										<p class="mb-0">Para mais informações sobre configuração de boletos, acesse o <a href="#section-attachment">Anexo</a></p>
+									</div>
+								</div>
+							</section>
+
+							<section class="section" id="item-configuration-methods-googlepay">
+								<h4 class="section-heading fs-4">GooglePay</h4>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-methods-googlepay-pt-br.png" alt="" title="GooglePay" />
+								</div>
+								<table class="table table-responsive table-bordered table-striped">
+									<tbody>
+										<thead>
+											<tr>
+												<th scope="col">Parâmetro</th>
+												<th scope="col" colspan="2">Descrição</th>
+											</tr>
+										</thead>
+										<tr>
+											<td>GooglePay Merchant ID</td>
+											<td>Valor mínimo que o pedido deve atingir para que o meio de pagamento seja
+												habilitado.</td>
+										</tr>
+										<tr>
+											<td>Valor mínimo</td>
+											<td>Valor mínimo que o pedido deve atingir para que o meio de pagamento seja
+												habilitado.</td>
+										</tr>
+										<tr>
+											<td>Status</td>
+											<td>Habilita o meio de pagamento.</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="callout-block callout-block-info">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-bullhorn"></i>
+											</span>
+											Nota
+										</h4>
+										<p class="mb-0">Não oferecemos suporte a criação do Google Merchant ID. Para
+											mais informações consulte <a target="_blank" href="https://support.google.com/merchants">Google Merchant Center
+												Help</a> e <a target="_blank" href="https://pay.google.com/business/console/">Google Pay & Wallet
+												Console</a></p>
+									</div>
+								</div>
+							</section>
+
+							<section class="section  border-bottom-0 pb-0" id="item-configuration-security">
+								<h2 class="section-heading">Segurança/Anti fraude</h2>
+
+								<section class="section" id="item-configuration-security-velocity">
+									<h4 class="section-heading fs-4">Velocity</h4>
+									<p>O Velocity é um tipo de mecanismo de prevenção a tentativas de fraude, que
+										analisa a frequência que determinados dados são utilizados numa transação e se
+										esse dados estão inscritos em uma lista de comportamentos passíveis de ações de
+										segurança.</p>
+
+									<div class="callout-block callout-block-warning">
+										<div class="content">
+											<h4 class="callout-title">
+												<span class="callout-icon-holder me-1">
+													<i class="fas fa-bullhorn"></i>
+												</span>
+												Importante
+											</h4>
+											<p class="mb-0">Para que suas transações sejam analisadas pelo Velocity,
+												solicite a inclusão desse serviço ao <a href="#item-about-support">Suporte Cielo</a>.</p>
+										</div>
+									</div>
+								</section>
+
+								<section class="section" id="item-configuration-security-zeroauth">
+									<h4 class="section-heading fs-4">Zero Auth</h4>
+									<p>O Zero Auth é uma ferramenta da Cielo que permite verificar se um cartão está
+										válido para realizar uma compra antes que o pedido seja finalizado. Simula uma
+										autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre
+										o teste. Suporta as bandeiras Visa, Master e Elo tanto para cartões de crédito
+										quanto de débito.</p>
+									<div class="col-md-6 col-sm-12">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-security-zeroauth-pt-br.png" alt="" title="Zero Auth" />
+									</div>
+									<table class="table table-responsive table-bordered table-striped">
+										<tbody>
+											<thead>
+												<tr>
+													<th scope="col">Parâmetro</th>
+													<th scope="col" colspan="2">Descrição</th>
+												</tr>
+											</thead>
+											<tr>
+												<td>Status</td>
+												<td>Habilita o uso da ferramenta.</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="callout-block callout-block-warning">
+										<div class="content">
+											<h4 class="callout-title">
+												<span class="callout-icon-holder me-1">
+													<i class="fas fa-bullhorn"></i>
+												</span>
+												Importante
+											</h4>
+											<p class="mb-0">Para habilitar o Zero Auth, entre em contato com a equipe de
+												<a href="#item-about-support">Suporte Cielo</a>.
+											</p>
+										</div>
+									</div>
+								</section>
+
+								<section class="section" id="item-configuration-security-sop">
+									<h4 class="section-heading fs-4">Silent Order Post (PCI DSS 3.2)</h4>
+									<p>Com o Silent Order Post, os dados do cartão são trafegados de forma segura diretamente para os sistemas da Cielo.
+										Esse processo garante a confidencialidade das informações pois dos não passam pelo servidor do e-commerce.</p>
+									<div class="col-md-6 col-sm-12">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-security-sop-pt-br.png" alt="" title="Silent Order Post" />
+									</div>
+									<table class="table table-responsive table-bordered table-striped">
+										<tbody>
+											<thead>
+												<tr>
+													<th scope="col">Parâmetro</th>
+													<th scope="col" colspan="2">Descrição</th>
+												</tr>
+											</thead>
+											<tr>
+												<td>ClientId</td>
+												<td>Chave fornecida pela Cielo para utilização da ferramenta.</td>
+											</tr>
+											<tr>
+												<td>Client Secret</td>
+												<td>Chave fornecida pela Cielo para utilização da ferramenta.</td>
+											</tr>
+											<tr>
+												<td>Status</td>
+												<td>Habilita o uso da ferramenta.</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="callout-block callout-block-info">
+										<div class="content">
+											<h4 class="callout-title">
+												<span class="callout-icon-holder me-1">
+													<i class="fas fa-info-circle"></i>
+												</span>
+												Nota
+											</h4>
+											<p class="mb-0">Para obter o <code>ClientID</code> e o
+												<code>ClientSecret</code>, envie um e-mail para o <a href="#item-about-support">Suporte Cielo</a> contendo o
+												<code>MerchantId</code> e informando que deseja obter as credenciais
+												para o <strong>Silent Order Post</strong>.
+											</p>
+										</div>
+									</div>
+								</section>
+
+								<section class="section" id="item-configuration-security-mpi">
+									<h4 class="section-heading fs-4">Autenticação 3DS 2.2</h4>
+									<p>Protocolo de autenticação que confirma se o comprador é de fato o portador do
+										cartão de crédito ou débito. O objetivo do 3DS é evitar fraudes em transações de
+										cartão.</p>
+									<div class="col-md-6 col-sm-12">
+										<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-security-mpi-pt-br.png" alt="" title="Autenticação 3DS 2.2" />
+									</div>
+									<table class="table table-responsive table-bordered table-striped">
+										<tbody>
+											<thead>
+												<tr>
+													<th scope="col">Parâmetro</th>
+													<th scope="col" colspan="2">Descrição</th>
+												</tr>
+											</thead>
+											<tr>
+												<td>ClientId</td>
+												<td>Chave fornecida pela Cielo para utilização da ferramenta.</td>
+											</tr>
+											<tr>
+												<td>Client Secret</td>
+												<td>Chave fornecida pela Cielo para utilização da ferramenta.</td>
+											</tr>
+											<tr>
+												<td>Status</td>
+												<td>Habilita o uso da ferramenta.</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="callout-block callout-block-info">
+										<div class="content">
+											<h4 class="callout-title">
+												<span class="callout-icon-holder me-1">
+													<i class="fas fa-info-circle"></i>
+												</span>
+												Nota
+											</h4>
+											<p class="mb-0">Para obter o <code>ClientID</code> e o
+												<code>ClientSecret</code>, envie um e-mail para o <a href="#item-about-support">Suporte Cielo</a> contendo o
+												<code>MerchantId</code> e informando que deseja obter as credenciais
+												para <strong>Autenticação 3DS 2.2</strong>.
+											</p>
+										</div>
+									</div>
+								</section>
+
+							</section>
+
+							<section class="section border-bottom-0 pb-0" id="item-configuration-security-notification-post">
+								<h4 class="section-heading fs-4">Notificação</h4>
+								<p>Url que a Cielo enviará notificações sobre criação ou mudanças no status da
+									transação.
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-configuration-security-notification-post-pt-br.png" alt="" title="Notificação" />
+								</div>
+								<table class="table table-responsive table-bordered table-striped">
+									<tbody>
+										<thead>
+											<tr>
+												<th scope="col">Parâmetro</th>
+												<th scope="col" colspan="2">Descrição</th>
+											</tr>
+										</thead>
+										<tr>
+											<td>Nome do parâmetro</td>
+											<td>Parâmetro que deverá ser enviado na notificação. Possui valor fixo:
+												<code>notificationKey</code>
+											</td>
+										</tr>
+										<tr>
+											<td>Chave</td>
+											<td>Valor do parâmetro <code>notificationKey</code></td>
+										</tr>
+										<tr>
+											<td>Url</td>
+											<td>Url/endpoint que receberá as notificações.</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="callout-block callout-block-info">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-info-circle"></i>
+											</span>
+											Nota
+										</h4>
+										<p>Durante seu cadastro na Cielo, você deve configurar a Url, parâmetro e a
+											chave corretamente para que Cielo envie as notificações.</p>
+										<p class="mb-0">Os eventos só são notificados quando você solicitar o
+											recebimento desse tipo de notificação ao <a href="#item-about-support">Suporte Cielo</a>.</p>
+									</div>
+								</div>
+								<div class="callout-block callout-block-warning">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-bullhorn"></i>
+											</span>
+											Importante
+										</h4>
+										<p class="mb-0">Siga corretamente as orientações de configuração das
+											notificações. Elas permitem que seu e-commerce se mantenha informado sobre
+											as transações em tempo real, ajudando a monitorar o fluxo de pagamentos.</p>
+									</div>
+								</div>
+							</section>
+
+						</section>
+					</article>
+
+					<article class="article px-0 py-4 border-top" id="section-checkout">
+						<header class="header">
+							<h1 class="heading">Checkout</h1>
+						</header>
+
+						<section class="section" id="item-checkout-loading-methods">
+							<h2 class="section-heading">Carregando Meios de Pagamento</h2>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-checkout-load-method-pt-br.png" alt="" title="Carregando Meios de Pagamento" />
+							</div>
+							<table class="table table-responsive table-bordered table-striped">
+								<tbody>
+									<thead>
+										<tr>
+											<th scope="col">Parâmetro</th>
+											<th scope="col">Status</th>
+											<th scope="col">Pedido possui frete</th>
+											<th scope="col">Exibir meios de pagamento</th>
+										</tr>
+									</thead>
+									<tr>
+										<td class="align-middle" rowspan="4"><strong>Ocultar seleção de método de
+												pagamento</strong><br><a href="#item-configuration-general" data-parent="configuration">Clique aqui para mais detalhes.</a></td>
+										<td>Habilitado</td>
+										<td class="d-flex justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 15px;">
+												<path fill="#198754" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+											</svg></td>
+										<td>Após selecionar o método de envio.</td>
+									</tr>
+									<tr>
+										<td>Habilitado</td>
+										<td class="d-flex justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width: 15px;">
+												<path fill="#dc3545" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+											</svg></td>
+										<td>Ao entrar na página de checkout.</td>
+									</tr>
+									<tr>
+										<td>Desabilitado</td>
+										<td class="d-flex justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 15px;">
+												<path fill="#198754" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+											</svg></td>
+										<td rowspan="2" class="align-middle">Após selecionar o médoto de pagamento.</td>
+									</tr>
+									<tr>
+										<td>Desabilitado</td>
+										<td class="d-flex justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width: 15px;">
+												<path fill="#dc3545" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+											</svg></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+
+						<section class="section" id="item-checkout-cards">
+							<h2 class="section-heading">Cartão de Crédito/Débito</h2>
+							<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-checkout-cards-flow-pt-br.png" alt="" title="Cartão de Crédito/Débito" />
+							<p>Fluxo de pagamento</p>
+							<ol>
+								<li class="py-0">Cliente preenche o formulário e clica em para enviar os dados.</li>
+								<li class="py-0">Após o pagamento, é exibido a mensagem de confirmação e redirecionado
+									para a página de sucesso.</li>
+							</ol>
+							<div class="callout-block callout-block-info">
+								<div class="content">
+									<h4 class="callout-title">
+										<span class="callout-icon-holder me-1">
+											<i class="fas fa-info-circle"></i>
+										</span>
+										Nota
+									</h4>
+									<p class="mb-0">O <strong>Número de telefone</strong> será exibido apenas quando a
+										<strong>Autenticação 3DS 2.2</strong> estiver habilitado.
+									</p>
+								</div>
+							</div>
+						</section>
+
+						<section class="section" id="item-checkout-pix">
+							<h2 class="section-heading">Pix</h2>
+							<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-checkout-pix-flow-pt-br.png" alt="" title="Pix" />
+							<p>Fluxo de pagamento</p>
+							<ol>
+								<li class="py-0">Cliente preenche o formulário e clica em para obter o QRCode.</li>
+								<li class="py-0">O QRCode é exibido na tela aguardando confirmação de pagamento através
+									da leitura do QRCode ou copiar e colar código.</li>
+								<li class="py-0">Após o pagamento, é exibido a mensagem de confirmação e redirecionado
+									para a página de sucesso.</li>
+							</ol>
+						</section>
+
+						<section class="section" id="item-checkout-ticket">
+							<h2 class="section-heading">Boleto</h2>
+							<p>Para transacionar por boleto, você precisa primeiro contratar esse serviço com o banco.
+							</p>
+							<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-checkout-ticket-flow-pt-br.png" alt="" title="Boleto" />
+							<p>Fluxo de pagamento</p>
+							<ol>
+								<li class="py-0">O comprador preenche o formulário e clica em confirmar.</li>
+								<li class="py-0">O comprador será redirecionado para a página de sucesso.</li>
+								<li class="py-0">O documento será aberto em uma nova aba ou janela do seu navegador.
+								</li>
+							</ol>
+							<div class="callout-block callout-block-info">
+								<div class="content">
+									<h4 class="callout-title">
+										<span class="callout-icon-holder me-1">
+											<i class="fas fa-info-circle"></i>
+										</span>
+										Nota
+									</h4>
+									<p class="mb-0">A seleção do <strong>Banco emissor</strong> do boleto será exibido
+										apenas quando houver dois bancos configurados e habilitados.</p>
+								</div>
+							</div>
+						</section>
+
+						<section class="section" id="item-checkout-googlepay">
+							<h2 class="section-heading">GooglePay</h2>
+							<p>O comprador deve estar logado na sua conta do Google.</p>
+							<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-checkout-googlepay-flow-pt-br.png" alt="" title="GooglePay" />
+							<p>Fluxo de pagamento</p>
+							<ol>
+								<li class="py-0">O comprador seleciona o método de pagamento e parcelamento e clica no
+									botão GPay.</li>
+								<li class="py-0">Será aberto um popup do GooglePay solicitando que o comprador selecione
+									o cartão deseja utilizar.</li>
+								<li class="py-0">Após o confirmação, é exibido a mensagem de pagamento concluído e
+									redirecionado para a página de sucesso.</li>
+							</ol>
+						</section>
+
+					</article>
+
+					<article class="article px-0 py-4 border-top" id="section-dashboard">
+						<header class="header">
+							<h1 class="heading">Dashboard</h1>
+						</header>
+
+						<section class="section" id="item-dashboard-transaction-details">
+							<h2 class="section-heading">Detalhes da transação</h2>
+							<p>No painel de controle acesse <strong>Vendas &gt; Pedidos</strong> e clique em
+								<strong>Exibir</strong><span class="border rounded ms-1" style="border-color: #1872a2;color: #ffffff;background-color: #1e91cf;padding: 9px 12px; display: inline-block;"><i class="fa-solid fa-eye"></i></span>
+							</p>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded mb-4" src="assets/images/pt/docs-dashboard-order-list-pt-br.png" alt="" title="Lista de pedidos" />
+							</div>
+							<p>Na página de <strong>Informações do pedido</strong>, clique em <strong>Detalhes da
+									transação</strong>.</p>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-dashboard-order-info-history-pt-br.png" alt="" title="Histórico do pedido" />
+							</div>
+							<p>As informações da transação de pagamento serão exibidas em um popup.</p>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-transaction-details-popup-pt-br.png" alt="" title="Detalhes da transação" />
+							</div>
+						</section>
+					</article>
+
+					<article class="article px-0 py-4 border-top" id="section-catalog">
+						<header class="header">
+							<h1 class="heading">Área do cliente</h1>
+						</header>
+
+						<section class="section" id="item-catalog-change-payment-method">
+							<h2 class="section-heading">Alterando método de pagemento</h2>
+							<p>Caso o pedido tenha sido realizado com pagamento via <strong>Boleto</strong> e o status
+								estiver como <strong>Pendente</strong>, é possível alterar o método de pagamento ou
+								reimprimir o boleto (<a href="#item-catalog-print-ticket">reimpressão de boleto</a>).
+							</p>
+							<p>Acesse <strong>Minha conta &gt; Histórico de pedidos</strong> e clique em
+								<strong>Exibir</strong><span class="border rounded ms-1" style="padding: 9px 12px;display: inline-block;color: #ffffff;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);background-image: linear-gradient(to bottom, #e06342, #dc512c);background-repeat: repeat-x;border-color: #dc512c #dc512c #a2371a;"><i class="fa-solid fa-eye"></i></span>
+							</p>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded mb-4" src="assets/images/pt/docs-catalog-order-history-pending-pt-br.png" alt="" title="Lista de pedidos" />
+							</div>
+							<p>Na página de <strong>Informações do pedido</strong>, clique em <strong>Alterar
+									pagamento</strong>.</p>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-catalog-order-info-change-payment-pt-br.png" alt="" title="Histórico do pedido" />
+							</div>
+							<p>O fluxo de pagamento via <strong>Cartão</strong>, <strong>Pix</strong> e <strong>Carteira Digital</strong> seguem os mesmos passos apresentados na seção <a href="#section-checkout">Checkout</a>.
+								Para <strong>Boleto</strong> é possível apenas reimprimir ou atualizar o boleto (<a href="#item-catalog-print-ticket">reimpressão de boleto</a>).</p>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-catalog-order-payment-popup.png" alt="" title="Opções de pagamento" />
+								<p>Será aberto um popup com as opções de pagamento.</p>
+							</div>
+						</section>
+
+						<section class="section" id="item-catalog-print-ticket">
+							<h2 class="section-heading">Reimpressão de boleto</h2>
+							<p>Acesse <strong>Minha conta &gt; Histórico de pedidos</strong> e clique em
+								<strong>Exibir</strong><span class="border rounded ms-1" style="padding: 9px 12px;display: inline-block;color: #ffffff;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);background-image: linear-gradient(to bottom, #e06342, #dc512c);background-repeat: repeat-x;border-color: #dc512c #dc512c #a2371a;"><i class="fa-solid fa-eye"></i></span>
+							</p>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded mb-4" src="assets/images/pt/docs-catalog-order-history-pending-pt-br.png" alt="" title="Lista de pedidos" />
+							</div>
+							<p>Na página de <strong>Informações do pedido</strong>, clique em <strong>Alterar
+									pagamento</strong>.</p>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-catalog-order-info-change-payment-pt-br.png" alt="" title="Histórico do pedido" />
+							</div>
+							<p>Após abrir o popup com as opções de pagamento, selecione a opção de
+								<strong>Boleto</strong>. Em seguida, clique em <strong>Reimprimir boleto</strong>, o
+								documento será aberto em uma nova aba ou janela do seu navegador.
+							</p>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-catalog-order-reprint-ticket-popup.png" alt="" title="Botão reimprimir boleto" />
+							</div>
+							<div class="callout-block callout-block-info">
+								<div class="content">
+									<h4 class="callout-title">
+										<span class="callout-icon-holder me-1">
+											<i class="fas fa-info-circle"></i>
+										</span>
+										Nota
+									</h4>
+									<p class="mb-0">Novos boletos só são emitidos após o vencimento do último boleto
+										impresso. Se o último boleto ainda estiver dentro do prazo de validade, ele será
+										reimpresso. Esse processo ajuda a evitar a emissão de múltiplos boletos com a
+										mesma data de vencimento.</p>
+								</div>
+							</div>
+						</section>
+
+						<section class="section" id="item-catalog-transaction-details">
+							<h2 class="section-heading">Detalhes da transação</h2>
+							<p>Com o cliente logado, acesse <strong>Minha conta &gt; Histórico de pedidos</strong> e
+								clique em <strong>Exibir</strong><span class="border rounded ms-1" style="padding: 9px 12px;display: inline-block;color: #ffffff;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);background-image: linear-gradient(to bottom, #e06342, #dc512c);background-repeat: repeat-x;border-color: #dc512c #dc512c #a2371a;"><i class="fa-solid fa-eye"></i></span></p>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded mb-4" src="assets/images/pt/docs-catalog-order-list-pt-br.png" alt="" title="Lista de pedidos" />
+							</div>
+							<p>Na página de <strong>Informações do pedido</strong>, clique em <strong>Detalhes da
+									transação</strong>.</p>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-catalog-order-info-history-pt-br.png" alt="" title="Histórico do pedido" />
+							</div>
+							<p>As informações da transação de pagamento serão exibidas em um popup.</p>
+							<div class="col-md-6 col-sm-12">
+								<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/docs-transaction-details-popup-pt-br.png" alt="" title="Detalhes da transação" />
+							</div>
+						</section>
+					</article>
+
+					<article class="article px-0 py-4 border-top" id="section-attachment">
+						<header class="header">
+							<h1 class="heading">Anexo</h1>
+						</header>
+
+						<section class="section" id="item-attachment-ticket-bradesco">
+							<h2 class="section-heading">Configurando boleto Bradesco</h2>
+
+							<section class="section" id="item-attachment-ticket-bradesco-environment">
+								<h4 class="my-3" id="item-attachment-ticket-bradesco-environment">Ambiente Bradesco</h4>
+								<div class="callout-block callout-block-warning">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-bullhorn"></i>
+											</span>
+											Atenção
+										</h4>
+										<p class="mb-0">Não oferecemos suporte para configuração de boletos no ambiente
+											Bradesco.</p>
+									</div>
+								</div>
+								<p>O lojista precisará realizar configurações dentro do ambiente bancário.</p>
+
+
+								<h5 class="my-3">Painel de controle</h5>
+								<p>O lojista deverá contatar o gerente de relacionamento do Banco Bradesco para
+									solicitar a contratação do Boleto Registrado via Gerenciador API/Painel de controle.
+									A equipe técnica do Banco enviará para o e-mail do solicitante os dados de acesso ao
+									Gerenciador API/Painel de controle.</p>
+
+								<div class="callout-block callout-block-success">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-thumbs-up"></i>
+											</span>
+											PAINEL DE CONTROLE BRADESCO:
+										</h4>
+										<p class="mb-0"><a target="_blank" href="https://gerenciador.meiosdepagamentobradesco.com.br/gl/login.jsp">https://gerenciador.meiosdepagamentobradesco.com.br/gl/login.jsp</a>
+										</p>
+									</div>
+								</div>
+
+								<h5 class="my-3">Configurando o boleto</h5>
+								<p>No <strong>painel do Bradesco</strong>, o lojista deverá acessar a aba
+									<strong>Configurações</strong> e escolher a opção <strong>Meios de
+										Pagamento</strong> e modifique as seguintes configurações.
+								</p>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/boleto-bradesco-passo-2.png" alt="" title="Configuração boleto Bradesco" />
+									<figcaption><em class="fs-7">Fonte: Cielo</em></figcaption>
+								</div>
+								<ul>
+									<li class="pb-0"><strong>Habilitar "frase" do boleto: </strong>Inativo</li>
+									<li class="pb-0"><strong>Habilitar "referência" do boleto: </strong>Ativo</li>
+									<li class="pb-0"><strong>Apresentar Agência e Conta: </strong>Inativo</li>
+									<li class="pb-0"><strong>Vencimento: </strong>5 dias</li>
+								</ul>
+								<div class="callout-block callout-block-warning">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-bullhorn"></i>
+											</span>
+											Importante
+										</h4>
+										<p class="mb-0">O vencimento pode ser definido nas configurações da extensão na
+											seção <a href="#item-configuration-methods-ticket">Boleto</a>.</p>
+									</div>
+								</div>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/boleto-bradesco-passo-3.png" alt="" title="Configuração boleto Bradesco" />
+									<figcaption><em class="fs-7">Fonte: Cielo</em></figcaption>
+								</div>
+								<ul>
+									<li class="pb-0"><strong>URL de notificação: </strong><a target="_blank" href="https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost">https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost</a>
+									</li>
+									<li class="pb-0">No campo <strong>Chave de Segurança</strong> clique em
+										<strong>Gerar chave de segurança</strong>
+									</li>
+									<li class="pb-0"><strong>Endereço de IP da loja</strong> (numérico)</li>
+									<li class="pb-0">Para os campos de <strong>URL de resposta, URL de falha e URL de
+											redirecionamento</strong>, inserir o seguinte link:
+										<code>https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost</span></code>
+									</li>
+								</ul>
+								<div class="col-md-6 col-sm-12">
+									<img class="figure-img img-fluid shadow rounded" src="assets/images/pt/boleto-bradesco-passo-4.png" alt="" title="Configuração boleto Bradesco" />
+									<figcaption><em class="fs-7">Fonte: Cielo</em></figcaption>
+								</div>
+								<p>Em cada um dos parâmetros, preencher com o <strong>Parâmetro de Comunicação</strong>
+									abaixo:</p>
+								<table class="table table-responsive table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>Parâmetros</th>
+											<th>Dados</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>Notificação</strong></td>
+											<td><code>numOrder=[%lid_m%]&amp;merchantid=[%merchantid%]&amp;cod=[%errorcod%]&amp;cctype=[%cctype%]&amp;ccname=[%ccname%]&amp;ccemail=[%ccemail%]&amp;numparc=[%numparc%]&amp;valparc=[%valparc%]&amp;valtotal=[%valtotal%]&amp;prazo=[%prazo%]&amp;comb=[%comb%]&amp;assinatura=[%assinatura%]&amp;</code>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Confirmação</strong></td>
+											<td><code>numOrder=[%lid_m%]&amp;merchantid=[%merchantid%]&amp;cod=[%errorcod%]&amp;cctype=[%cctype%]&amp;ccname=[%ccname%]&amp;ccemail=[%ccemail%]&amp;numparc=[%numparc%]&amp;valparc=[%valparc%]&amp;valtotal=[%valtotal%]&amp;prazo=[%prazo%]&amp;comb=[%comb%]&amp;assinatura=[%assinatura%]&amp;</code>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Falha</strong></td>
+											<td><code>numOrder=[%lid_m%]&amp;merchantid=[%merchantid%]&amp;cod=[%errorcod%]&amp;cctype=[%cctype%]&amp;ccname=[%ccname%]&amp;ccemail=[%ccemail%]&amp;numparc=[%numparc%]&amp;valparc=[%valparc%]&amp;valtotal=[%valtotal%]&amp;prazo=[%prazo%]&amp;comb=[%comb%]&amp;assinatura=[%assinatura%]&amp;</code>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Comunicação</strong></td>
+											<td><code>numOrder=[%lid_m%]&amp;merchantid=[%merchantid%]&amp;cod=[%errorcod%]&amp;cctype=[%cctype%]&amp;ccname=[%ccname%]&amp;ccemail=[%ccemail%]&amp;numparc=[%numparc%]&amp;valparc=[%valparc%]&amp;valtotal=[%valtotal%]&amp;prazo=[%prazo%]&amp;comb=[%comb%]&amp;assinatura=[%assinatura%]&amp;</code>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="callout-block callout-block-warning">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-bullhorn"></i>
+											</span>
+											Importante
+										</h4>
+										<p class="mb-0">Não podem existir espaços ou quebras de texto nos parâmetros
+											expostos acima.</p>
+									</div>
+								</div>
+								<p>Clique em <strong>Gravar todas as configurações realizadas</strong>.</p>
+
+								<h5 class="my-3">Configurando credenciais</h5>
+								<ol>
+									<li class="pb-0">No <strong> painel do Bradesco</strong>, o lojista deverá acessar a
+										aba <strong>Configurações</strong> e escolher a opção <strong>Meios de
+											Pagamento</strong>.</li>
+									<li class="pb-0">O campo <strong>Palavra-secreta</strong> deve ser preenchido com
+										uma senha. A operação é confirmada clicando em <strong>Gerar nova chave de
+											segurança</strong></li>
+									<li class="pb-0">Ainda no <a target="_blank" href="https://gerenciador.meiosdepagamentobradesco.com.br/gl/login.jsp">Painel
+											do Bradesco</a>, o cliente deve criar um Usuário de Consulta para
+										atualizações de status.</li>
+								</ol>
+
+								<h5 class="my-3">Suporte Bradesco</h5>
+								<p>Para obter ajuda com os passos acima, entre em contato com o suporte Bradesco:</p>
+								<ul>
+									<li class="pb-0"><a target="_blank" href="mailto:kit@scopus.com.br">kit@scopus.com.br</a></li>
+									<li class="pb-0"><a target="_blank" href="mailto:homologacao@scopus.com.br">homologacao@scopus.com.br</a></li>
+									<li class="pb-0"><a target="_blank" href="mailto:com.eletronico@bradesco.com.br">com.eletronico@bradesco.com.br</a>
+									</li>
+									<li class="pb-0"><a target="_blank" href="mailto:comerciobradesco@scopus.com.br">comerciobradesco@scopus.com.br</a>
+									</li>
+								</ul>
+							</section>
+
+							<section class="section" id="item-attachment-ticket-bradesco-cielo-environment">
+								<h4 class="my-3">Ambiente Cielo</h4>
+								<h5 class="my-3">Dados de cadastro</h5>
+								<p>O Lojista precisará informar ao <a href="#item-about-support">Suporte Cielo</a> os
+									seguintes dados:</p>
+								<table class="table table-responsive table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>Dados</th>
+											<th>Descrição</th>
+											<th>Formato</th>
+											<th>OBS</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>Agência</strong></td>
+											<td>Código agência</td>
+											<td>4 dígitos</td>
+											<td>com ou sem hífen</td>
+										</tr>
+										<tr>
+											<td><strong>Conta</strong></td>
+											<td>Conta corrente</td>
+											<td>7 dígitos</td>
+											<td>com hífen</td>
+										</tr>
+										<tr>
+											<td><strong>Carteira</strong></td>
+											<td><strong>Não é necessário boleto Registrado</strong></td>
+											<td>2 dígitos</td>
+											<td>N/A</td>
+										</tr>
+										<tr>
+											<td><strong>Conciliação</strong></td>
+											<td>Número do convênio de cobrança</td>
+											<td>7 dígitos</td>
+											<td>Informado dentro do <a target="_blank" href="https://gerenciador.meiosdepagamentobradesco.com.br/gl/login.jsp">Painel
+													do Bradesco</a></td>
+										</tr>
+										<tr>
+											<td><strong>Convênio</strong></td>
+											<td>Convênio de comércio eletrônico</td>
+											<td>6 dígitos</td>
+											<td>Validar com o banco se é necessário preenchimento para a carteira</td>
+										</tr>
+										<tr>
+											<td><strong>Nosso Numero</strong></td>
+											<td>Contador incremental</td>
+											<td>5 dígitos</td>
+											<td><strong>Opcional</strong> - Número de controle que a cada emissão do
+												boleto aumenta em +1</td>
+										</tr>
+										<tr>
+											<td><strong>Vencimento</strong></td>
+											<td>Prazo de validade do boleto</td>
+											<td>6 dígitos</td>
+											<td>É o valor padrão, se nenhum outro valor for enviado via API</td>
+										</tr>
+										<tr>
+											<td><strong>Assinatura de Afiliação</strong></td>
+											<td>Chave de segurança do <strong>Bradesco</strong></td>
+											<td>50 dígitos</td>
+											<td>Informado dentro do <a target="_blank" href="https://gerenciador.meiosdepagamentobradesco.com.br/gl/login.jsp">Painel
+													do Bradesco</a></td>
+										</tr>
+									</tbody>
+								</table>
+								<p>Serão necessárias as credenciais do Bradesco:</p>
+								<div class="callout-block callout-block-info">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-info-circle"></i>
+											</span>
+											Nota
+										</h4>
+										<p class="mb-0">Essas credenciais são usadas para que a Cielo possa consultar o
+											status do Boleto.</p>
+									</div>
+								</div>
+								<table class="table table-responsive table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>Credenciais</th>
+											<th>Descrição</th>
+											<th>Exemplo</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>Usuário</strong></td>
+											<td>E-mail usado no acesso do <a target="_blank" href="https://gerenciador.meiosdepagamentobradesco.com.br/gl/login.jsp">Painel
+													do Bradesco</a></td>
+											<td><strong><a target="_blank" href="mailto:cielo@cielo.com">cielo@cielo.com</a></strong></td>
+										</tr>
+										<tr>
+											<td><strong>Senha/Chave de Segurança</strong></td>
+											<td>Chave de segurança criada dentro do <a target="_blank" href="https://gerenciador.meiosdepagamentobradesco.com.br/gl/login.jsp">Painel
+													do Bradesco</a>.<br><strong>Não é a senha de acesso ao Painel
+													Bradesco</strong></td>
+											<td><strong style="overflow-wrap: anywhere;">qcnmFA-Y2rGm4meWLzrEzSpdPARBsmblZSqfKLwq7DM</strong>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+
+						</section>
+
+						<section class="section" id="item-attachment-ticket-bb">
+							<h2 class="section-heading">Configurando boleto Banco do Brasil</h2>
+
+							<section class="section" id="item-attachment-ticket-bb-environment">
+								<div class="callout-block callout-block-warning">
+									<div class="content">
+										<h4 class="callout-title">
+											<span class="callout-icon-holder me-1">
+												<i class="fas fa-bullhorn"></i>
+											</span>
+											Atenção
+										</h4>
+										<p class="mb-0">Não oferecemos suporte para configuração de boletos no ambiente
+											Banco do Brasil.</p>
+									</div>
+								</div>
+								<h4 class="my-3" id="item-attachment-ticket-bb-environment">Ambiente Banco do Brasil
+								</h4>
+								<p>O lojista deverá contatar o gerente de relacionamento do Banco do Brasil para
+									solicitar a habilitação do produto Boleto Registrado. O formulário a seguir deve ser
+									preenchido e entregue ao gerente.</p>
+								<table class="table table-responsive table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>Dado</th>
+											<th>Formato</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>URL (site) retorno à loja</strong></td>
+											<td><a target="_self" href="https://www.pagador.com.br">https://www.pagador.com.br</a>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Formato arquivo Retorno</strong></td>
+											<td>(X) CBR643</td>
+										</tr>
+										<tr>
+											<td><strong>Meio de retorno</strong></td>
+											<td>{X) Mainframe – para empresa com sistema próprio, que não usam o GFN.
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<p>Ao final do credenciamento, o lojista receberá um documento com como o que segue
+									abaixo.</p>
+
+							</section>
+
+							<section class="section" id="item-attachment-ticket-bb-cielo-environment">
+								<h4 class="my-3">Ambiente Cielo</h4>
+								<h5 class="my-3">Dados de cadastro</h5>
+								<p>O Lojista precisará informar ao <a href="#item-about-support">Suporte Cielo</a> os
+									seguintes dados:</p>
+								<table class="table table-responsive table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>Dados</th>
+											<th>Descrição</th>
+											<th>Formato</th>
+											<th>OBS</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>Agência</strong></td>
+											<td>Código agência</td>
+											<td>5 Dígitos</td>
+											<td>Hífen obrigatório - não pode haver espaços antes ou depois da agência
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Conta:</strong></td>
+											<td>Conta corrente</td>
+											<td>7 Dígitos</td>
+											<td>Hífen obrigatório</td>
+										</tr>
+										<tr>
+											<td><strong>Carteira:</strong></td>
+											<td><strong>Não é necessário boleto Registrado</strong></td>
+											<td>2 dígitos</td>
+											<td>N/A</td>
+										</tr>
+										<tr>
+											<td><strong>Conciliação</strong></td>
+											<td>Número do convênio de cobrança</td>
+											<td>7 Dígitos</td>
+											<td>Inserir o <em>Convênio de cobrança</em> fornecido pelo banco</td>
+										</tr>
+										<tr>
+											<td><strong>Convênio</strong></td>
+											<td>Convênio de comércio eletrônico</td>
+											<td>6 Dígitos</td>
+											<td>Inserir o <em>Convênio de Comercio Eletrônico</em> fornecido pelo banco
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Nosso Numero</strong></td>
+											<td>Contador incremental</td>
+											<td>5 Dígitos</td>
+											<td>Inserir "10000" - A cada emissão de boleto esse numero aumenta em +1
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Vencimento</strong></td>
+											<td>Prazo de validade do boleto</td>
+											<td>6 Dígitos</td>
+											<td>É o valor padrão, se nenhum outro valor for enviado via API</td>
+										</tr>
+										<tr>
+											<td><strong>Instruções</strong></td>
+											<td>Informações exibidas no boleto</td>
+											<td>50 Dígitos</td>
+											<td>Somente números e letras de A-Z, não pode haver caracteres especiais ou
+												mais de um espaçamento entre cada palavra</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+						</section>
+
+					</article>
+
+				</main>
+				<footer class="footer">
+					<div class="container text-center pt-5">
+						<small class="copyright">Copyright <i class="fa-regular fa-copyright"></i>
+							<script>document.write(new Date().getFullYear());</script> - 
+							<a class="theme-link" href="https://www.opencart.com/index.php?route=marketplace/extension&filter_member=Rodrigoabr" target="_blank">Cielo Checkout Extension for Opencart</a>
+						</small>
+					</div>
+					<div class="d-flex justify-content-center">
+						<script> if (document.lastModified) {
+							document.write('<span class="pb-1" style="font-size: 0.7rem;" >Última atualização: ' + document.lastModified + '</span>');				
+						}
+						</script>
+					</div>
+				</footer>
 			</div>
 		</div>
-	</header>
-    
-    
-    <div class="page-header theme-bg-dark py-5 text-center position-relative">
-	    <div class="theme-bg-shapes-right"></div>
-	    <div class="theme-bg-shapes-left"></div>
-	    <div class="container">
-		    <h1 class="page-heading single-col-max mx-auto">Documentation</h1>
-		    <div class="page-intro single-col-max mx-auto">Everything you need to get your software documentation online.</div>
-		    <div class="main-search-box pt-3 d-block mx-auto">
-                 <form class="search-form w-100">
-		            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
-		            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
-		        </form>
-             </div>
-	    </div>
-    </div>
-   <div class="page-content">
-	    <div class="container">
-		    <div class="docs-overview py-5">
-			    <div class="row justify-content-center">
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fa-solid fa-power-off"></i>
-							        </span>
-							        <span class="card-title-text">Visão geral</span>
-							    </h5>
-							    <div class="card-text">
-								    Section overview goes here. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-							    </div>
-							    <a class="card-link-mask" href="docs-page.html#section-1"></a>
-						    </div>
-					    </div>
-				    </div>
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-arrow-down"></i>
-							        </span>
-							        <span class="card-title-text">Installation</span>
-							    </h5>
-							    <div class="card-text">
-								    Section overview goes here. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-							    </div>
-							    <a class="card-link-mask" href="docs-page.html#section-2"></a>
-						    </div>
-					    </div>
-				    </div>
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-box fa-fw"></i>
-							        </span>
-							        <span class="card-title-text">APIs</span>
-							    </h5>
-							    <div class="card-text">
-								    Section overview goes here. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.						    
-								</div>
-							    <a class="card-link-mask" href="docs-page.html#section-3"></a>
-						    </div>
-					    </div>
-				    </div>
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-cogs fa-fw"></i>
-							        </span>
-							        <span class="card-title-text">Integrations</span>
-							    </h5>
-							    <div class="card-text">
-								    Section overview goes here. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.						    
-								</div>
-							    <a class="card-link-mask" href="docs-page.html#section-4"></a>
-						    </div>
-					    </div>
-				    </div>
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-tools"></i>
-							        </span>
-							        <span class="card-title-text">Utilities</span>
-							    </h5>
-							    <div class="card-text">
-								    Section overview goes here. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.						    
-								</div>
-							    <a class="card-link-mask" href="docs-page.html#section-5"></a>
-						    </div>
-					    </div>
-				    </div>
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-laptop-code"></i>
-							        </span>
-							        <span class="card-title-text">Web</span>
-							    </h5>
-							    <div class="card-text">
-								    Section overview goes here. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.						    
-								</div>
-							    <a class="card-link-mask" href="docs-page.html#section-6"></a>
-						    </div>
-					    </div>
-				    </div>
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-tablet-alt"></i>
-							        </span>
-							        <span class="card-title-text">Mobile</span>
-							    </h5>
-							    <div class="card-text">
-								    Section overview goes here. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.						    
-								</div>
-							    <a class="card-link-mask" href="docs-page.html#section-7"></a>
-						    </div>
-					    </div>
-				    </div>
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-book-reader"></i>
-							        </span>
-							        <span class="card-title-text">Resources</span>
-							    </h5>
-							    <div class="card-text">
-								    Section overview goes here. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.						    
-								</div>
-							    <a class="card-link-mask" href="docs-page.html#section-8"></a>
-						    </div>
-					    </div>
-				    </div>
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-lightbulb"></i>
-							        </span>
-							        <span class="card-title-text">FAQs</span>
-							    </h5>
-							    <div class="card-text">
-								    Section overview goes here. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.						    
-								</div>
-							    <a class="card-link-mask" href="docs-page.html#section-9"></a>
-						    </div>
-					    </div>
-				    </div>
-			    </div>
-		    </div>
-		</div>
-    </div>
-
-    <section class="cta-section text-center py-5 theme-bg-dark position-relative">
-	    <div class="theme-bg-shapes-right"></div>
-	    <div class="theme-bg-shapes-left"></div>
-	    <div class="container">
-		    <h3 class="mb-2 text-white mb-3">Launch Your Software Project Like A Pro</h3>
-		    <div class="section-intro text-white mb-3 single-col-max mx-auto">Want to launch your software project and start getting traction from your target users? Check out our premium <a class="text-white" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderpro-bootstrap-5-startup-template-for-software-projects/">Bootstrap 5 startup template CoderPro</a>! It has everything you need to promote your product.</div>
-		    <div class="pt-3 text-center">
-			    <a class="btn btn-light" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderpro-bootstrap-5-startup-template-for-software-projects/">Get CoderPro<i class="fas fa-arrow-alt-circle-right ml-2"></i></a>
-		    </div>
-	    </div>
-    </section>
-
-    <footer class="footer">
-
-	    <div class="footer-bottom text-center py-5">
-		    
-		    <ul class="social-list list-unstyled pb-4 mb-0">
-			    <li class="list-inline-item"><a href="#"><i class="fab fa-github fa-fw"></i></a></li> 
-	            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
-	            <li class="list-inline-item"><a href="#"><i class="fab fa-slack fa-fw"></i></a></li>
-	            <li class="list-inline-item"><a href="#"><i class="fab fa-product-hunt fa-fw"></i></a></li>
-	            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f fa-fw"></i></a></li>
-	            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram fa-fw"></i></a></li>
-	        </ul>
-	        
-	        
-            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-            
-	        
-	    </div>
-	    
-    </footer>
-       
-    
-    <script src="assets/plugins/popper.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
-    
-    
-    <script src="assets/plugins/smoothscroll.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-    <script src="assets/js/highlight-custom.js"></script> 
-    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
-    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
-    <script src="assets/js/docs.js"></script> 
-
+	</div>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </body>
-</html> 
 
+</html>
