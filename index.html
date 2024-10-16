@@ -128,9 +128,27 @@
 			color: #b73c37;
 		}
 
+		#download-btn-sm {
+			display: none;
+		}
+
 		@media (max-width: 576px) {
 			.navbar-brand {
 				font-size: 1rem !important;
+			}
+
+			#download-btn-lg {
+				display: none;
+			}
+
+			#download-btn-sm {
+				display: block;
+			}
+		}
+
+		@media (max-width: 392px) {
+			#download-btn-sm {
+				display: none;
 			}
 		}
 	</style>
@@ -140,16 +158,18 @@
 	<div class="container">
 		<div class="row">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top " aria-label="Cielo Checkout for Opencart 4.x">
-				<div class="container-fluid d-flex justify-content-start">
+				<div class="container-fluid d-flex justify-content-between">
 					<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="padding: 6px 8px;font-size: .8rem;">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<a class="navbar-brand ms-3" href="#"><strong>Cielo Checkout</strong> for Opencart 4.x</a>
+					<a class="btn btn-success" id="download-btn-lg" target="_blank" href="https://www.opencart.com/index.php?route=marketplace/extension&filter_member=Rodrigoabr" role="button">Download</a>
+					<a class="btn btn-success btn-sm" id="download-btn-sm" target="_blank" href="https://www.opencart.com/index.php?route=marketplace/extension&filter_member=Rodrigoabr" role="button"><i class="fa-solid fa-download"></i></a>
 				</div>
 			</nav>
 
 			<aside class="col-lg-3 col-xl-3 col-xxl-2 sidebar" id="col-aside">
-				<div class="offcanvas-lg offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" data-bs-backdrop="static">
+				<div class="offcanvas-lg offcanvas-start aside-offcanvas" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 					<div class="offcanvas-header">
 						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar" aria-label="Fechar"></button>
 					</div>
@@ -158,90 +178,77 @@
 							<ul class="section-items list-unstyled nav flex-column pb-3">
 								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#about-collapse"><a class="nav-link scrollto" href="#section-about"><span class="theme-icon-holder me-2"><i class="fa-solid fa-power-off"></i></span>Sobre a extensão</a></li>
 								<div id="about-collapse" class="collapse">
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-about-overview">Visão geral</a></li>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-about-support">Suporte técnico</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-about-overview">Visão geral</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-about-support">Suporte técnico</a></li>
 								</div>
 
 								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#installation-collapse"><a class="nav-link scrollto" href="#section-installation"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-down"></i></span>Instalação</a></li>
 								<div id="installation-collapse" class="collapse">
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-installation-extension">Upload da extensão</a></li>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-installation-certificates-server">Certificado TLS/SSL servidor</a></li>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-installation-certificates-cielo">Certificado TLS/SSL Cielo</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-installation-extension">Upload da extensão</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-installation-certificates-server">Certificado TLS/SSL servidor</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-installation-certificates-cielo">Certificado TLS/SSL Cielo</a></li>
 								</div>
 
 								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#configuration-collapse"><a class="nav-link scrollto" href="#section-configuration"><span class="theme-icon-holder me-2"><i class="fa-solid fa-gear"></i></span>Configuração</a></li>
 								<div id="configuration-collapse" class="collapse">
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-accessing">Acessando</a></li>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-general">Configurações Gerais</a></li>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-credentials">Credenciais</a></li>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-status">Status Transacional</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-accessing">Acessando</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-general">Configurações Gerais</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-credentials">Credenciais</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-status">Status Transacional</a></li>
 
-									<li class="nav-item collapsed" data-bs-toggle="collapse" data-bs-target="#configuration-methods-collapse"><a class="nav-link scrollto" href="#item-configuration-methods">Meios de
-											Pagamento</a></li>
+									<li class="nav-item collapsed" data-bs-toggle="collapse" data-bs-target="#configuration-methods-collapse"><a class="nav-link scrollto" href="#item-configuration-methods">Meios de Pagamento</a></li>
 									<div id="configuration-methods-collapse" class="ms-4 collapse">
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-methods-credit-card">Cartão de Crédito</a>
-										</li>
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-methods-debit-card">Cartão de Débito</a>
-										</li>
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-methods-pix">Pix</a></li>
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-methods-ticket">Boleto</a></li>
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-methods-googlepay">GooglePay</a></li>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-methods-credit-card">Cartão de Crédito</a></li>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-methods-debit-card">Cartão de Débito</a></li>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-methods-pix">Pix</a></li>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-methods-ticket">Boleto</a></li>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-methods-googlepay">GooglePay</a></li>
 									</div>
 
 									<li class="nav-item collapsed" data-bs-toggle="collapse" data-bs-target="#configuration-security-collapse"><a class="nav-link scrollto" href="#item-configuration-security">Segurança/Anti fraude</a></li>
 									<div id="configuration-security-collapse" class="ms-4 collapse">
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-security-velocity">Velocity</a></li>
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-security-zeroauth">ZeroAuth</a></li>
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-security-sop">Silent Order Post</a></li>
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-security-mpi">Autenticação 3DS 2.2</a>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-security-velocity">Velocity</a></li>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-security-zeroauth">ZeroAuth</a></li>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-security-sop">Silent Order Post</a></li>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-security-mpi">Autenticação 3DS 2.2</a>
 										</li>
 									</div>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-configuration-security-notification-post">Notificação</a>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-configuration-security-notification-post">Notificação</a>
 									</li>
 								</div>
 
 								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#checkout-collapse"><a class="nav-link scrollto" href="#section-checkout"><span class="theme-icon-holder me-2"><i class="fa-solid fa-cart-shopping"></i></span>Checkout</a></li>
 								<div id="checkout-collapse" class="collapse">
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-loading-methods">Carregando Meios de Pagamento</a>
-									</li>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-cards">Cartão
-											de Crédito/Débito</a></li>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-pix">Pix</a>
-									</li>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-ticket">Boleto</a></li>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-checkout-googlepay">GooglePay</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-checkout-loading-methods">Carregando Meios de Pagamento</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-checkout-cards">Cartão de Crédito/Débito</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-checkout-pix">Pix</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-checkout-ticket">Boleto</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-checkout-googlepay">GooglePay</a></li>
 								</div>
 
-								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-order-info-collapse"><a class="nav-link scrollto" href="#section-dashboard"><span class="theme-icon-holder me-2"><i class="fa-solid fa-chart-line"></i></span>Painel de controle</a>
-								</li>
+								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-order-info-collapse"><a class="nav-link scrollto" href="#section-dashboard"><span class="theme-icon-holder me-2"><i class="fa-solid fa-chart-line"></i></span>Painel de controle</a></li>
 								<div id="dashboard-order-info-collapse" class="collapse">
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-dashboard-transaction-details">Detalhes da transação</a>
-									</li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-dashboard-transaction-details">Detalhes da transação</a></li>
 								</div>
 
 								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#catalog-order-info-collapse"><a class="nav-link scrollto" href="#section-catalog"><span class="theme-icon-holder me-2"><i class="fa-solid fa-user"></i></span>Área do cliente</a></li>
 								<div id="catalog-order-info-collapse" class="collapse">
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-catalog-change-payment-method">Alterando método de pagemento</a>
-									</li>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-catalog-print-ticket">Reimpressão de boleto</a></li>
-									<li class="nav-item"><a class="nav-link scrollto" href="#item-catalog-transaction-details">Detalhes da transação</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-catalog-change-payment-method">Alterando método de pagemento</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-catalog-print-ticket">Reimpressão de boleto</a></li>
+									<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-catalog-transaction-details">Detalhes da transação</a></li>
 								</div>
 
 								<li class="nav-item section-title collapsed" data-bs-toggle="collapse" data-bs-target="#attachment-collapse"><a class="nav-link scrollto" href="#section-attachment"><span class="theme-icon-holder me-2"><i class="fa-solid fa-paperclip"></i></span>Anexo</a></li>
 								<div id="attachment-collapse" class="collapse">
-									<li class="nav-item" data-bs-toggle="collapse" data-bs-target="#attachment-ticket-bradesco-collapse"><a class="nav-link scrollto" href="#item-attachment-ticket-bradesco">Configurando boleto Bradesco</a>
-									</li>
+									<li class="nav-item" data-bs-toggle="collapse" data-bs-target="#attachment-ticket-bradesco-collapse"><a class="nav-link scrollto" href="#item-attachment-ticket-bradesco">Configurando boleto Bradesco</a></li>
 									<div id="attachment-ticket-bradesco-collapse" class="ms-4 collapse">
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-attachment-ticket-bradesco-environment">Ambiente
-												Bradesco</a></li>
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-attachment-ticket-bradesco-cielo-environment">Ambiente
-												Cielo</a></li>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-attachment-ticket-bradesco-environment">Ambiente Bradesco</a></li>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-attachment-ticket-bradesco-cielo-environment">Ambiente Cielo</a></li>
 									</div>
 									<li class="nav-item" data-bs-toggle="collapse" data-bs-target="#attachment-ticket-bb-collapse"><a class="nav-link scrollto" href="#item-attachment-ticket-bb">Configurando boleto BB</a></li>
 									<div id="attachment-ticket-bb-collapse" class="ms-4 collapse">
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-attachment-ticket-bb-environment">Ambiente BB</a></li>
-										<li class="nav-item"><a class="nav-link scrollto" href="#item-attachment-ticket-bb-cielo-environment">Ambiente
-												Cielo</a></li>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-attachment-ticket-bb-environment">Ambiente BB</a></li>
+										<li class="nav-item"><a class="nav-link offcanvas-dismiss" href="#item-attachment-ticket-bb-cielo-environment">Ambiente Cielo</a></li>
 									</div>
 								</div>
 							</ul>
@@ -1879,6 +1886,11 @@
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script>
+		$(".offcanvas-dismiss").click(function(){
+			$('.aside-offcanvas').offcanvas('hide');
+		});
+	</script>
 </body>
 
 </html>
